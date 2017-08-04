@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>This site is a capstone project for <a href="www.epicodus.com">Epicodus</a>.</p>
+<p>I will be attempting to create an application that allows people with typing disabilities to build a simple website.</p>
+<p>Some credit goes to Pete Lazuran and Google, due to Pete telling me that Google is doing this already. What an ass.</p>
+
+<p>Project Breakdown:</p>
+<ul>
+    <li>Part 1: Speech To Text
+        <ul>
+            <li>Component 1: Get input from user</li>
+            <li>Component 2: Store input as audio file</li>
+            <li>Component 3: Use an api (maybe <a href="https://www.ibm.com/watson/services/speech-to-text/">Watson Speech to text API</a>) to send audio to have it converted to text</li>
+            <li>Component 4: Get returned text</li>
+            <li>Component 4: Store Returned Text in a parseable format, maybe a string array.</li>
+            <li>Component 5: Parse stored text for keywords
+                <ul>
+                    <li>website</li>
+                    <li>says</li>
+                    <li>background</li>
+                    <li>color</li>
+                    <li>border</li>
+                    <li>header</li>
+                    <li>footer(whoa styling too ....eesh)</li>
+                    <li>paragraph</li>
+                    <li>unordered list</li>
+                    <li>ordered list</li>
+                    <li><em>AND MANY MORE WTF AM I DOING</em></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Part 2: Text to Code
+        <ul>
+            <li>Component 1: Generate specific code block from keyword (last step of part 1)</li>
+            <li>Component 2: Put code block in place</li>
+        </ul>
+    </li>
+    <li>Part 3: Automation
+        <ul>
+            <li>Component 3: Figure out how to automate this</li>
+        </ul>
+    </li>
+</ul>
