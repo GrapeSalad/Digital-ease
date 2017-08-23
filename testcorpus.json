@@ -1,0 +1,29 @@
+{
+  "words": [
+    {
+      "display_as": "could",
+      "sounds_like": [ "could" ],
+      "word": "culd"
+    },
+    {
+      "display_as": "closeby",
+      "sounds_like": [ "closeby" ],
+      "word": "closeby"
+    },
+    {
+      "display_as": "cya",
+      "sounds_like": [ "cya", "see ya" ],
+      "word": "cya"
+    },
+    {
+      "display_as": "p-tag",
+      "sounds_like": [ "pea tag", "pee tag" ],
+      "word": "p-tag"
+    },
+    {
+      "display_as": "h1",
+      "sounds_like": [ "header one", "h one", "head or one" ],
+      "word": "h1"
+    }
+  ]
+}

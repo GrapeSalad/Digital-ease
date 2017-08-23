@@ -9,6 +9,7 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 |---|---|
 | API call using curl or postman | Postman - X |
 | api call using RestSharp | O |
+| build corpus for code-specific words/sentences | O |
 | build keyword file | O |
 | build keyword references | O |
 | build code snippets that link to a keyword | O |
@@ -26,6 +27,12 @@ Download from the [repo](https://github.com/GrapeSalad/Digital-ease)
 Open Viual Studio 2015 and choose the Open Project option.
 
 Navigate to the directory in which you downloaded the repo and open the project file.
+
+*Packages*
+
+Nuget Packages to get:
+* IBM.WatsonDeveloperCloud.SpeechToText.v1 - [documentation](https://github.com/watson-developer-cloud/dotnet-standard-sdk/tree/development/src/IBM.WatsonDeveloperCloud.SpeechToText.v1)
+* Newtonsoft.Json
 
 ### Migration
 
@@ -51,7 +58,10 @@ This don't even work yet broh. Barely even started, broh.
 * ASP.NET MVC
 * ASP.NET
 * CSS
-* IBM's Watson Speech-to-Text
+* IBM's Watson Speech-to-Text [API](https://www.ibm.com/watson/services/speech-to-text/)
+* [Postman](https://www.getpostman.com/)
+* [CameraMouse](http://www.cameramouse.org/index.html)
+* [Knockout](http://knockoutjs.com/)
 
 ## Credits
 
