@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Disarmingly_Simple.Controllers
+namespace Digital_Ease.Controllers
 {
     public class HomeController : Controller
     {
