@@ -5,4 +5,11 @@
 <h3>@ViewData["Message"]</h3>
 
 
-<h1></h1>
+@if (Model.Length != 0)
+{
+    @foreach(var word in Model)
+    {
+        <p>@word</p>
+
+    }
+}

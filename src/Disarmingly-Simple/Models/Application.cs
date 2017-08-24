@@ -40,11 +40,19 @@ namespace Disarmingly_Simple.Models
             return recognizeStatus;
         }
 
-        public SpeechRecognitionEvent GetSpeechRecogEventWithSessionId()
+        public Array GetSpeechRecogEventWithSessionId()
         {
             Stream s = new MemoryStream(File.ReadAllBytes("wwwroot/audio/getYourShitTogether.wav"));
             var result = _speechToText.RecognizeWithSession(this.GetCreateNewSession().SessionId, "audio/wav", s);
-            return result;
+            if (result.Results.Count > 0)
+            {
+                for (int i=0; i < result.Results.Count; i++)
+                {
+                    result.Results[i].Alternatives[0].Transcript.Split(' ');//fix array splitting and adding to words array. 
+
+                }
+            }
+            return words;
         }
     }
 }

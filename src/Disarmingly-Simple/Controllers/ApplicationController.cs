@@ -18,8 +18,8 @@ namespace Disarmingly_Simple.Controllers
             //newApp.GetModelsForSet();
             //newApp.GetCreateNewSession();
             //newApp.GetSessionStatus_of_GetCreateNewSession();
-            newApp.GetSpeechRecogEventWithSessionId();
-            return View();
+            //newApp.GetSpeechRecogEventWithSessionId();
+            return View(newApp.GetSpeechRecogEventWithSessionId());
         }
 
     }
