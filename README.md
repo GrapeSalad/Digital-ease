@@ -17,7 +17,7 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 | build keyword references | O |
 | build code snippets that link to a keyword | O |
 | parse returned json for transcript  | X |
-| split json parse into array | O |
+| split json parse into array | X |
 | parse array for keywords | O |
 | change view based on code-snippets | O |
 
