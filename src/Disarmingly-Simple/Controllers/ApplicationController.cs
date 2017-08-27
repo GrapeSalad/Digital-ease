@@ -14,12 +14,12 @@ namespace Disarmingly_Simple.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            Application newApp = new Application();
+            //The followind 5 lines were for testing the WATSON Nuget Package
+            //Application newApp = new Application();
             //newApp.GetModelsForSet();
             //newApp.GetCreateNewSession();
             //newApp.GetSessionStatus_of_GetCreateNewSession();
             //newApp.GetSpeechRecogEventWithSessionId();
-            //;
             return View();
         }
         [Route("/AudioCapture")]

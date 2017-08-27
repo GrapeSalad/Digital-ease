@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static Disarmingly_Simple.Models.EnvironmentVariables;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Disarmingly_Simple.Models
 {
@@ -58,6 +59,11 @@ namespace Disarmingly_Simple.Models
                     words = speechResult.Results[i].Alternatives[0].Transcript.Split(' ');//fix array splitting and adding to words array. 
 
                 }
+            }
+            else
+            {
+                string[] testArray = { "there", "aint", "nothing", "here"};
+                words = testArray;
             }
             return words;
         }
