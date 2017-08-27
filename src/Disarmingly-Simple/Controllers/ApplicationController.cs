@@ -19,8 +19,20 @@ namespace Disarmingly_Simple.Controllers
             //newApp.GetCreateNewSession();
             //newApp.GetSessionStatus_of_GetCreateNewSession();
             //newApp.GetSpeechRecogEventWithSessionId();
-            return View(newApp.GetSpeechRecogEventWithSessionId());
+            //;
+            return View();
         }
-
+        [Route("/AudioCapture")]
+        public IActionResult AudioCapture()
+        {
+            return View();
+        }
+        [Route("/TextOutput")]
+        public IActionResult TextOutput(string fileName)
+        {
+            Application newApp = new Application();
+            var result = newApp.GetSpeechRecogEventWithSessionId(fileName);
+            return View(result);
+        }
     }
 }

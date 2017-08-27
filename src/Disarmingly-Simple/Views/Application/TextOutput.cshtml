@@ -1,0 +1,12 @@
+﻿
+<div class="toBeShown">
+    @if (Model.Results.Count != 0)
+    {
+        @*@foreach(var word in Model.Results[0].Alternatives[0].Transcript)
+            {
+                <p>@word</p>
+
+            }*@
+        <p>@Model.Results[0].Alternatives[0].Transcript</p>
+    }
+</div>

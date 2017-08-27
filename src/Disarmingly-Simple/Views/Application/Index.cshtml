@@ -1,15 +1,120 @@
 ﻿@{
     ViewData["Title"] = "SPEEEEEEEEECH - ZOMG";
+    ViewData["SpeechToTextHelp"] = "Well its time to do some stuff.";
+    ViewData["RecordingHelp"] = "To begin recording click on the microphone image, speak into your computers microphone, and then click again on the image to stop recording. Once you are finished, click on the save file button to download the file.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+<h3 id="getAudioHelp">@ViewData["RecordingHelp"]</h3>
+<h3 id="getTextHelp">@ViewData["SpeechToTextHelp"]</h3>
+<script>
+    //function hasGetUserMedia() {
+    //    return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+    //}
+    //if (hasGetUserMedia()) {
+    //    console.log("has getUserMedia");
+    //}
+    //else {
+    //    alert("getUserMedia is not supported in this browser");
+    //}
+    //var errorCallback = function (e) {
+    //    console.log("FAILURE TO COMMUNICATE, EJECT/ABORT/OHHHHNOOOO", e);
+    //};
+    //navigator.getUserMedia({ audio: true }, function (stream) {
+    //    var microphone = context.createMediaStreamSource(stream);
+    //    var filter = context.createBiquadFilter();
+
+    //    // microphone -> filter -> destination.
+    //    microphone.connect(filter);
+    //    filter.connect(context.destination);
+    //}, errorCallback);
+    
+
+</script>
 
 
-@if (Model.Length != 0)
-{
-    @foreach(var word in Model)
-    {
-        <p>@word</p>
-
+<script src="~/js/audioDisplay.js"></script>
+<script src="~/js/recorderjs/recorder.js"></script>
+<script src="~/js/receiveAudio.js"></script>
+<style>
+    html {
+        overflow: hidden;
     }
-}
+
+    body {
+        font: 14pt Arial, sans-serif;
+        background: lightgrey;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        margin: 0 0;
+    }
+
+    canvas {
+        display: inline-block;
+        background: #202020;
+        width: 95%;
+        max-height: 300px;
+        box-shadow: 0px 0px 10px blue;
+    }
+
+    #controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 20%;
+        width: 100%;
+    }
+
+    #record {
+        height: 15vh;
+    }
+
+        #record.recording {
+            background: red;
+            background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+            background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+            background: radial-gradient(center, ellipse cover, #ff0000 0%,lightgrey 75%,lightgrey 100%,#7db9e8 100%);
+        }
+
+    #save, #save img {
+        height: 10vh;
+    }
+
+    #save {
+        opacity: 0.25;
+    }
+
+        #save[download] {
+            opacity: 1;
+        }
+
+    #viz {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #getTextHelp{
+        display: none;
+    }
+</style>
+
+
+<div id="viz">
+    <canvas id="analyser" width="1024" height="500"></canvas>
+    <canvas id="wavedisplay" width="1024" height="500"></canvas>
+</div>
+<div id="controls">
+    <img id="record" src="~/images/mic128.png" onclick="toggleRecording(this);">
+    <a id="save" href="#"><img src="~/images/save.svg"></a>
+</div>
+
+<div id="getTextTime"><p>CLICK THIS BROH, ITS TIME FOR SOME TEXT</p></div>
+<div id="textOutputResult"></div>
+
+

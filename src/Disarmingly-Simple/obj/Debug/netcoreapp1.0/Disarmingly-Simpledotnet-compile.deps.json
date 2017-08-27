@@ -34,7 +34,8 @@
           "IBM.WatsonDeveloperCloud.SpeechToText.v1": "1.2.0",
           "Newtonsoft.Json": "10.0.3",
           "Microsoft.Bcl": "1.1.9",
-          "RestSharp.NetCore": "105.2.3"
+          "RestSharp.NetCore": "105.2.3",
+          "System.Runtime": "4.3.0"
         },
         "compile": {
           "Disarmingly-Simple.dll": {}
@@ -2850,7 +2851,8 @@
           "IBM.WatsonDeveloperCloud.SpeechToText.v1": "1.2.0",
           "Newtonsoft.Json": "10.0.3",
           "Microsoft.Bcl": "1.1.9",
-          "RestSharp.NetCore": "105.2.3"
+          "RestSharp.NetCore": "105.2.3",
+          "System.Runtime": "4.3.0"
         },
         "runtime": {
           "Disarmingly-Simple.dll": {}

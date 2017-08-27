@@ -10988,7 +10988,8 @@
       "Microsoft.NETCore.App >= 1.0.1",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
       "Newtonsoft.Json >= 10.0.3",
-      "RestSharp.NetCore >= 105.2.3"
+      "RestSharp.NetCore >= 105.2.3",
+      "System.Runtime >= 4.3.0"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
