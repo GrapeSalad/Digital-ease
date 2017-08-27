@@ -8,12 +8,15 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 | Sections of developement | Implemented? |
 |---|---|
 | API call using curl or postman | Postman - X |
-| api call using RestSharp | O |
+| api call using RestSharp | NO WAY |
+| use the Watson Nuget Packages to successfully transcribe speech to text | X |
+| find a way for a user to record then save audio directly from the page | X |
+| output text on page | X |
 | build corpus for code-specific words/sentences | O |
 | build keyword file | O |
 | build keyword references | O |
 | build code snippets that link to a keyword | O |
-| parse returned json for transcript  | O |
+| parse returned json for transcript  | X |
 | split json parse into array | O |
 | parse array for keywords | O |
 | change view based on code-snippets | O |

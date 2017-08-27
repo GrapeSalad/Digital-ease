@@ -12,6 +12,7 @@ namespace Disarmingly_Simple.Models
     public class Application
     {
         public Array words;
+        public SpeechRecognitionEvent result;
 
         private SpeechToTextService _speechToText = new SpeechToTextService();
 
@@ -43,17 +44,22 @@ namespace Disarmingly_Simple.Models
         public SpeechRecognitionEvent GetSpeechRecogEventWithSessionId(string fileName)
         {
             Stream s = new MemoryStream(File.ReadAllBytes("wwwroot/audio/" + fileName + ".wav"));
-            var result = _speechToText.RecognizeWithSession(this.GetCreateNewSession().SessionId, "audio/wav", s);
+            result = _speechToText.RecognizeWithSession(this.GetCreateNewSession().SessionId, "audio/wav", s);
             return result;
-            //if (result.Results.Count > 0)
-            //{
-            //    for (int i=0; i < result.Results.Count; i++)
-            //    {
-            //        result.Results[i].Alternatives[0].Transcript.Split(' ');//fix array splitting and adding to words array. 
+        }
 
-            //    }
-            //}
-            //return words;
+        public Array parseSpeechToTextResult(SpeechRecognitionEvent speechResult)
+        {
+            
+            if (speechResult.Results.Count > 0)
+            {
+                for (int i = 0; i < speechResult.Results.Count; i++)
+                {
+                    words = speechResult.Results[i].Alternatives[0].Transcript.Split(' ');//fix array splitting and adding to words array. 
+
+                }
+            }
+            return words;
         }
     }
 }
