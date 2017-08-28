@@ -20,6 +20,7 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 | split json parse into array | X |
 | parse array for keywords | O |
 | change view based on code-snippets | O |
+| loading gif/img while user waits | X |
 
 <hr>
 

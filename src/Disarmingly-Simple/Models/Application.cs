@@ -14,6 +14,7 @@ namespace Disarmingly_Simple.Models
     {
         public Array words;
         public SpeechRecognitionEvent result;
+        string[] arrayToBeSplit = { "change", "the", "background", "color", "to", "green" };
 
         private SpeechToTextService _speechToText = new SpeechToTextService();
 
