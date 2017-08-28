@@ -18,8 +18,8 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 | build code snippets that link to a keyword | O |
 | parse returned json for transcript  | X |
 | split json parse into array | X |
-| parse array for keywords | O |
-| change view based on code-snippets | O |
+| parse array for keywords | X |
+| change view based on code-snippets | X |
 | loading gif/img while user waits | X |
 
 <hr>
