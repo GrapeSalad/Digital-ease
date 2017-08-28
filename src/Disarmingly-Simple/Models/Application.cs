@@ -53,13 +53,11 @@ namespace Disarmingly_Simple.Models
 
         public Array parseSpeechToTextResult(SpeechRecognitionEvent speechResult)
         {
-            
             if (speechResult.Results.Count > 0)
             {
                 for (int i = 0; i < speechResult.Results.Count; i++)
                 {
                     words = speechResult.Results[i].Alternatives[0].Transcript.Split(' ');//fix array splitting and adding to words array. 
-
                 }
             }
             else

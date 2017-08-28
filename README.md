@@ -34,9 +34,11 @@ Navigate to the directory in which you downloaded the repo and open the project 
 
 *Packages*
 
-Nuget Packages to get:
+Nuget Packages to ensure are installed:
 * IBM.WatsonDeveloperCloud.SpeechToText.v1 - [documentation](https://github.com/watson-developer-cloud/dotnet-standard-sdk/tree/development/src/IBM.WatsonDeveloperCloud.SpeechToText.v1)
 * Newtonsoft.Json
+
+Watch for Reference Restoration errors, you may need to add `System.Runtime.4.1.0` to the project.
 
 ### Migration
 
@@ -61,6 +63,8 @@ This don't even work yet broh. Barely even started, broh.
 * Visual Studio
 * ASP.NET MVC
 * ASP.NET
+* Javascript
+* JQuery
 * CSS
 * IBM's Watson Speech-to-Text [API](https://www.ibm.com/watson/services/speech-to-text/)
 * [Postman](https://www.getpostman.com/)
@@ -69,4 +73,5 @@ This don't even work yet broh. Barely even started, broh.
 
 ## Credits
 
-* David Wilson
+* David Wilson - main project and idea
+* see comments in Javascript files
