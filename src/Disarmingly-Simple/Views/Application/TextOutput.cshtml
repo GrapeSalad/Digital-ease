@@ -1,12 +1,16 @@
-﻿
-<div class="toBeShown">
-    @*@if (Model.Results.Count != 0)
-    {
-        <p>@Model.Results[0].Alternatives[0].Transcript</p>
-    }*@
-        @foreach(var word in Model)
+﻿<div class="toBeShown">
+@Html.Raw(Model[0])
+@*@Html.Encode(Model)*@
+    @*<div id="interactable" class=@Model[Model.Length-1]>*@
+         @*@if (Model.Results.Count != 0)
+            {
+                <p>@Model.Results[0].Alternatives[0].Transcript</p>
+            }*@
+        @*@foreach (var word in Model)
         {
             <p>@word</p>
 
-        }
+        }*@
+        @*<p>@Model</p>*@
+    @*</div>*@
 </div>

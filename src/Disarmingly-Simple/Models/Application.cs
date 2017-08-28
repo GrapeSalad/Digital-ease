@@ -14,8 +14,8 @@ namespace Disarmingly_Simple.Models
     {
         public Array words;
         public SpeechRecognitionEvent result;
-        string[] bgToGreen = { "change", "the", "background", "color", "to", "green" };
-        string[] bgToRed = { "change", "the", "background", "color", "to", "red" };
+        public string[] bgToGreen = { "change", "the", "background", "color", "to", "green" };
+        public string[] bgToRed = { "change", "the", "background", "color", "to", "red" };
 
         private SpeechToTextService _speechToText = new SpeechToTextService();
 
@@ -62,19 +62,53 @@ namespace Disarmingly_Simple.Models
             }
             else
             {
-                string[] testArray = { "there", "aint", "nothing", "here"};
+                string[] testArray = { "<style>body{background-color:green;}</style>", "aint", "nothing", "here"};
                 words = testArray;
             }
             return words;
         }
-        public Array splitArrayTesting()
+        public Array splitArrayTesting(string[] chosenArray)
         {
             string[] wordToRemove = { "the", "of", "it", "to" };
+            string[] fixedArray = { };
+            //string[] codeToReturn = { };
             for(var i = 0; i < wordToRemove.Count(); i ++)
             {
-                bgToGreen = bgToGreen.Where(val => val != wordToRemove[i]).ToArray();
+                fixedArray = chosenArray.Where(val => val != wordToRemove[i]).ToArray();
             }
-            return bgToGreen;
+            if(fixedArray.Contains("background"))
+            {
+                if(fixedArray.Contains("color"))
+                {
+                    if(fixedArray.Contains("green"))
+                    {
+                        string[] codeToReturn = { "<style>body{background-color:green;}</style>", "green"};
+                        return codeToReturn.ToArray();
+                    }
+                    else if(fixedArray.Contains("red"))
+                    {
+                        string[] codeToReturn = { "<style>body{background-color:red;}</style>", "red"};
+                        return codeToReturn.ToArray();
+                    }
+                    else if (fixedArray.Contains("blue"))
+                    {
+                        string[] codeToReturn = { "<style>body{background-color:blue;}</style>", "blue"};
+                        return codeToReturn.ToArray();
+                    }
+                    else if (fixedArray.Contains("yellow"))
+                    {
+                        string[] codeToReturn = { "<style>body{background-color:yellow;}</style>", "yellow"};
+                        return codeToReturn.ToArray();
+                    }
+                    else
+                    {
+                        string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "maybe speak more clearly or use a primary color"};
+                        return codeToReturn.ToArray();
+                    }
+                }
+                return fixedArray;
+            }
+            return fixedArray;
         }
     }
 }

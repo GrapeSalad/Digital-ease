@@ -31,9 +31,9 @@ namespace Disarmingly_Simple.Controllers
         public IActionResult TextOutput(string fileName)
         {
             Application newApp = new Application();
-            var speechEventResult = newApp.GetSpeechRecogEventWithSessionId(fileName);
-            var result = newApp.parseSpeechToTextResult(speechEventResult);
-            //var result = newApp.splitArrayTesting();
+            //var speechEventResult = newApp.GetSpeechRecogEventWithSessionId(fileName);
+            //var result = newApp.parseSpeechToTextResult(speechEventResult);
+            var result = newApp.splitArrayTesting(newApp.bgToGreen);
             return View(result);
         }
     }
