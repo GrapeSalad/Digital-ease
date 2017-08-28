@@ -33,6 +33,7 @@ namespace Disarmingly_Simple.Controllers
             Application newApp = new Application();
             var speechEventResult = newApp.GetSpeechRecogEventWithSessionId(fileName);
             var result = newApp.parseSpeechToTextResult(speechEventResult);
+            //var result = newApp.splitArrayTesting();
             return View(result);
         }
     }

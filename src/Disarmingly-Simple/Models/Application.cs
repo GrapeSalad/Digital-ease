@@ -14,7 +14,8 @@ namespace Disarmingly_Simple.Models
     {
         public Array words;
         public SpeechRecognitionEvent result;
-        string[] arrayToBeSplit = { "change", "the", "background", "color", "to", "green" };
+        string[] bgToGreen = { "change", "the", "background", "color", "to", "green" };
+        string[] bgToRed = { "change", "the", "background", "color", "to", "red" };
 
         private SpeechToTextService _speechToText = new SpeechToTextService();
 
@@ -67,6 +68,15 @@ namespace Disarmingly_Simple.Models
                 words = testArray;
             }
             return words;
+        }
+        public Array splitArrayTesting()
+        {
+            string[] wordToRemove = { "the", "of", "it", "to" };
+            for(var i = 0; i < wordToRemove.Count(); i ++)
+            {
+                bgToGreen = bgToGreen.Where(val => val != wordToRemove[i]).ToArray();
+            }
+            return bgToGreen;
         }
     }
 }
