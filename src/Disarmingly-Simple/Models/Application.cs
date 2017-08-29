@@ -12,7 +12,7 @@ namespace Disarmingly_Simple.Models
 {
     public class Application
     {
-        public Array words;
+        public string[] words;
         public SpeechRecognitionEvent result;
         public string[] bgToGreen = { "change", "the", "background", "color", "to", "green" };
         public string[] bgToRed = { "change", "the", "background", "color", "to", "red" };
@@ -65,7 +65,7 @@ namespace Disarmingly_Simple.Models
                 string[] testArray = { "<style>body{background-color:green;}</style>", "aint", "nothing", "here"};
                 words = testArray;
             }
-            return words;
+            return splitArrayTesting(words);
         }
         public Array splitArrayTesting(string[] chosenArray)
         {
