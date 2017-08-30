@@ -124,7 +124,7 @@ namespace Disarmingly_Simple.Models
 					string color = GetColor(fixedArray)[0];
 					if (GetColor(fixedArray).Length == 1)
 					{
-						string[] returnArray = { "<style>body{font:" + color + "!important;}</style>", "Font color changed to "+color };
+						string[] returnArray = { "<style>body{color:" + color + "!important;}</style>", "Font color changed to "+color };
 						return returnArray;
 					}
 					else
