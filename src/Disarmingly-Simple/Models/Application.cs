@@ -65,636 +65,42 @@ namespace Disarmingly_Simple.Models
             }
             else
             {
-                string[] testArray = { "<style>body{background-color:green;}</style>", "aint", "nothing", "here"};
+                string[] testArray = { "}</style>", "aint", "nothing", "here"};
                 words = testArray;
             }
             return splitArrayTesting(words);
         }
+
+		public string[] fixArray(string[] array)
+		{
+			string[] wordToRemove = { "the", "of", "it", "to", "two", "too" };
+			string[] fixedArray = { };
+			//string[] codeToReturn = { };
+			for (var i = 0; i < wordToRemove.Count(); i++)
+			{
+				fixedArray = array.Where(val => val != wordToRemove[i]).ToArray();
+			}
+			return fixedArray;
+		}
         public Array splitArrayTesting(string[] chosenArray)
         {
-            string[] wordToRemove = { "the", "of", "it", "to", "two" };
-            string[] fixedArray = { };
-            //string[] codeToReturn = { };
-            for(var i = 0; i < wordToRemove.Count(); i ++)
-            {
-                fixedArray = chosenArray.Where(val => val != wordToRemove[i]).ToArray();
-            }
+			string[] fixedArray = fixArray(chosenArray);
             if(fixedArray.Contains("background"))
             {
                 if(fixedArray.Contains("color"))
                 {
-					if (fixedArray.Contains("dark"))
-					{
-						if(fixedArray.Contains("cyan"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkcyan;}</style>", "darkcyan" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("blue"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkblue;}</style>", "darkblue" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("goldenrod"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkgoldenrod;}</style>", "darkgoldenrod" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("grey") || fixedArray.Contains("gray"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkgrey;}</style>", "darkgrey" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("green"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkgreen;}</style>", "darkgreen" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("khaki"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkkhaki;}</style>", "darkkhaki" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("magenta"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkmagenta;}</style>", "darkmagenta" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("olive") && fixedArray.Contains("green"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkolivegreen;}</style>", "darkolivegreen" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("orange"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkorange;}</style>", "darkorange" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("orchid") || (fixedArray.Contains("ore") && fixedArray.Contains("kid")) || (fixedArray.Contains("or") && fixedArray.Contains("kid")))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkorchid;}</style>", "darkorchid" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("red"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkred;}</style>", "darkred" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("salmon"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darksalmon;}</style>", "darksalmon" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("seagreen") || ((fixedArray.Contains("sea") || fixedArray.Contains("see")) && fixedArray.Contains("green")))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkseagreen;}</style>", "darkseagreen" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("slate"))
-						{
-							if(fixedArray.Contains("blue"))
-							{
-								string[] codeToReturn = { "<style>body{background-color:darkslateblue;}</style>", "darkslateblue" };
-								return codeToReturn.ToArray();
-							}
-							else if(fixedArray.Contains("grey") || fixedArray.Contains("gray"))
-							{
-								string[] codeToReturn = { "<style>body{background-color:darkslategrey;}</style>", "darkslategrey" };
-								return codeToReturn.ToArray();
-							}
-							else
-							{
-								string[] codeToReturn = { "", "Needs either blue or grey!" };
-								return codeToReturn.ToArray();
-							}
-						}
-						else if (fixedArray.Contains("turquoise"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkturquoise;}</style>", "darkturquoise" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("violet"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkviolet;}</style>", "darkviolet" };
-							return codeToReturn.ToArray();
-						}
-						else
-						{
-							string[] codeToReturn = { "", "Please see the documentation for visual studio's native colors." };
-							return codeToReturn.ToArray();
-						}
-					}
-					else if(fixedArray.Contains("deep"))
-					{
-						if (fixedArray.Contains("pink"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkpink;}</style>", "darkpink" };
-							return codeToReturn.ToArray();
-						}
-						else if (fixedArray.Contains("skyblue") || (fixedArray.Contains("sky") && fixedArray.Contains("blue")))
-						{
-							string[] codeToReturn = { "<style>body{background-color:darkskyblue;}</style>", "darkskyblue" };
-							return codeToReturn.ToArray();
-						}
-						else
-						{
-							string[] codeToReturn = { "", "Needs pink or skyblue" };
-							return codeToReturn.ToArray();
-						}
-					}
-                    else if(fixedArray.Contains("alice") && fixedArray.Contains("blue"))
-                    {
-                        string[] codeToReturn = { "<style>body{background-color:aliceblue;}</style>", "Alice Blue"};
-                        return codeToReturn.ToArray();
-                    }
-					else if (fixedArray.Contains("antique")&&fixedArray.Contains("white"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:antiquewhite;}</style>", "AntiqueWhite" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("aquamarine") || (fixedArray.Contains("aqua") && fixedArray.Contains("marine")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:aquamarine;}</style>", "Aquamarine" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("aqua"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:aqua;}</style>", "aqua" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("azure"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:azure;}</style>", "azure" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("beige"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:beige;}</style>", "beige" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("bisque"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:bisque;}</style>", "bisque" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("black"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:black;}</style>", "black" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("blanched") && fixedArray.Contains("almond"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:blanchedalmond;}</style>", "Blanched Almond" };
-						return codeToReturn.ToArray();
-					}
-                    else if (fixedArray.Contains("blue") && fixedArray.Contains("violet"))
-                    {
-                        string[] codeToReturn = { "<style>body{background-color:blueviolet;}</style>", "Blue Violet"};
-                        return codeToReturn.ToArray();
-                    }
-					else if (fixedArray.Contains("cadetblue") || (fixedArray.Contains("cadet") && fixedArray.Contains("blue")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:cadetblue;}</style>", "cadetblue" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("cornflower") || (fixedArray.Contains("cornflower") && fixedArray.Contains("blue")) || (fixedArray.Contains("corn") && fixedArray.Contains("flower") && fixedArray.Contains("blue")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:cornflowerblue;}</style>", "cornflowerblue" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("midnightblue") || (fixedArray.Contains("midnight") && fixedArray.Contains("blue")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:midnightblue;}</style>", "midnightblue" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("royal") && fixedArray.Contains("blue"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:royalblue;}</style>", "royalblue" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("blue"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:blue;}</style>", "blue" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("burlywood") || (fixedArray.Contains("burly") && fixedArray.Contains("wood")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:burlywood;}</style>", "BurlyWood" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("chartreuse") || (fixedArray.Contains("chart") && fixedArray.Contains("ruse")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:chartreuse;}</style>", "chartreuse" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("chocolate"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:chocolate;}</style>", "chocolate" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("coral"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:coral;}</style>", "coral" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("cornsilk") || (fixedArray.Contains("corn") && fixedArray.Contains("silk")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:cornsilk;}</style>", "cornsilk" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("crimson"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:crimson;}</style>", "crimson" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("cyan"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:cyan;}</style>", "cyan" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("dim") && (fixedArray.Contains("grey") || fixedArray.Contains("gray")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:dimgrey;}</style>", "dimgrey" };
-						return codeToReturn.ToArray();
-					}
-					else if ((fixedArray.Contains("dodger") || (fixedArray.Contains("dodge") && (fixedArray.Contains("er") || fixedArray.Contains("her")))) && fixedArray.Contains("blue"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:dodgerblue;}</style>", "dodgerblue" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("firebrick") || (fixedArray.Contains("fire") && fixedArray.Contains("brick")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:firebrick;}</style>", "firebrick" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("floral") && fixedArray.Contains("white"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:floralwhite;}</style>", "floralwhite" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("forest") && fixedArray.Contains("green"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:forestgreen;}</style>", "forestgreen" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("fuchsia"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:fuchsia;}</style>", "fuchsia" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("gainsboro") || (fixedArray.Contains("gains") && (fixedArray.Contains("boro") || fixedArray.Contains("borough") || fixedArray.Contains("borrow"))))
-					{
-						string[] codeToReturn = { "<style>body{background-color:gainsboro;}</style>", "gainsboro" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("ghost") && fixedArray.Contains("white"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:ghostwhite;}</style>", "ghostwhite" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("gold"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:gold;}</style>", "gold" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("goldenrod") || (fixedArray.Contains("golden") && fixedArray.Contains("rod")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:goldenrod;}</style>", "goldenrod" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("grey") || fixedArray.Contains("gray"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:grey;}</style>", "grey" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("green") && fixedArray.Contains("yellow"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:greenyellow;}</style>", "greenyellow" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("lawn") && fixedArray.Contains("green"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:lawngreen;}</style>", "lawngreen" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("lime") && fixedArray.Contains("green"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:limegreen;}</style>", "limegreen" };
-						return codeToReturn.ToArray();
-					}
-					else if ((fixedArray.Contains("sea") || fixedArray.Contains("see")) && fixedArray.Contains("green"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:seagreen;}</style>", "seagreen" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("green"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:green;}</style>", "green" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("honeydew") || (fixedArray.Contains("honey") && (fixedArray.Contains("dew") || fixedArray.Contains("do"))))
-					{
-						string[] codeToReturn = { "<style>body{background-color:honeydew;}</style>", "honeydew" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("hotpink") || (fixedArray.Contains("hot") && fixedArray.Contains("pink")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:hotpink;}</style>", "hotpink" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("indianred") || (fixedArray.Contains("indian") && (fixedArray.Contains("read") || fixedArray.Contains("red"))))
-					{
-						string[] codeToReturn = { "<style>body{background-color:indianred;}</style>", "indianred" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("indigo"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:indigo;}</style>", "indigo" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("ivory"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:ivory;}</style>", "ivory" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("khaki"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:khaki;}</style>", "khaki" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("lavenderblush") || (fixedArray.Contains("lavender") && fixedArray.Contains("blush")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:lavenderblush;}</style>", "lavenderblush" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("lavender"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:lavender;}</style>", "lavender" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("lemon") && fixedArray.Contains("chiffon"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:lemonchiffon;}</style>", "lemonchiffon" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("light"))
-					{
-						if(fixedArray.Contains("blue"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightblue;}</style>", "lightblue" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("coral"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightcoral;}</style>", "lightcoral" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("cyan"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightcyan;}</style>", "lightcyan" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("golden") && fixedArray.Contains("rod"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightgoldenrodyellow;}</style>", "lightgoldenrodyellow" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("green"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightgreen;}</style>", "lightgreen" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("grey") || fixedArray.Contains("gray"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightgrey;}</style>", "lightgrey" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("pink"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightpink;}</style>", "lightpink" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("salmon"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lighsalmon;}</style>", "lighsalmon" };
-							return codeToReturn.ToArray();
-						}
-
-						else if (fixedArray.Contains("yellow"))
-						{
-							string[] codeToReturn = { "<style>body{background-color:lightyellow;}</style>", "lightyellow" };
-							return codeToReturn.ToArray();
-						}
-					}
-					else if (fixedArray.Contains("lime"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:lime;}</style>", "lime" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("linen"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:linen;}</style>", "linen" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("magenta"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:magenta;}</style>", "magenta" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("maroon"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:maroon;}</style>", "maroon" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("mint") && fixedArray.Contains("cream"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:mintcream;}</style>", "mintcream" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("misty") && fixedArray.Contains("rose"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:mistyrose;}</style>", "mistyrose" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("moccasin"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:moccasin;}</style>", "moccasin" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("navajo"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:navajowhite;}</style>", "navajowhite" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("navy"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:navy;}</style>", "navy" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("old") && fixedArray.Contains("lace"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:oldlace;}</style>", "oldlace" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("olive"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:olive;}</style>", "olive" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("red") && fixedArray.Contains("orange"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:orangered;}</style>", "orangered" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("orange"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:orange;}</style>", "orange" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("orchid"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:orchid;}</style>", "orchid" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("peach") && fixedArray.Contains("puff"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:peachpuff;}</style>", "peachpuff" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("peru"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:peru;}</style>", "peru" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("plum"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:plum;}</style>", "plum" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("powderblue") || (fixedArray.Contains("powder") && fixedArray.Contains("blue")))
-					{
-						string[] codeToReturn = { "<style>body{background-color:powderblue;}</style>", "powderblue" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("purple"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:purple;}</style>", "purple" };
-						return codeToReturn.ToArray();
-					}
-					else if(fixedArray.Contains("red"))
-                    {
-                        string[] codeToReturn = { "<style>body{background-color:red;}</style>", "red"};
-                        return codeToReturn.ToArray();
-                    }
-					else if (fixedArray.Contains("rosy") && fixedArray.Contains("brown"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:rosybrown;}</style>", "rosybrown" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("saddle") && fixedArray.Contains("brown"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:saddlebrown;}</style>", "saddlebrown" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("salmon"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:salmon;}</style>", "salmon" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("sandy") && fixedArray.Contains("brown"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:yellow;}</style>", "yellow" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("sienna"))
-                    {
-                        string[] codeToReturn = { "<style>body{background-color:sienna;}</style>", "sienna"};
-                        return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("silver"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:silver;}</style>", "silver" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("snow"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:snow;}</style>", "snow" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("tan"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:tan;}</style>", "tan" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("teal"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:teal;}</style>", "teal" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("thistle"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:thistle;}</style>", "thistle" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("tomato"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:tomato;}</style>", "tomato" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("turquiose"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:turquiose;}</style>", "turquiose" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("violet"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:violet;}</style>", "violet" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("wheat"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:wheat;}</style>", "wheat" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("white"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:white;}</style>", "white" };
-						return codeToReturn.ToArray();
-					}
-
-					else if (fixedArray.Contains("yellow"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:yellow;}</style>", "yellow" };
-						return codeToReturn.ToArray();
-					}
-					else if (fixedArray.Contains("pink"))
-					{
-						string[] codeToReturn = { "<style>body{background-color:pink;}</style>", "pink" };
-						return codeToReturn.ToArray();
+					string color = GetColor(fixedArray)[0];
+					if (GetColor(fixedArray).Length == 1)
+					{
+						string[] returnArray = { "<style>body{background-color:" + color + ";}</style>", "Background color changed to " + color };
+						return returnArray;
 					}
 					else
-                    {
-                        string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "See Visual Studio's Documentation on color names"};
-                        return codeToReturn.ToArray();
-                    }
-                }
+					{
+						string[] returnArray = { "", GetColor(fixedArray)[1] };
+						return returnArray;
+					}
+				}
                 return fixedArray;
             }
 			else if( fixedArray.Contains("font"))
@@ -715,19 +121,17 @@ namespace Disarmingly_Simple.Models
 				}
 				else if(fixedArray.Contains("color"))
 				{
-					foreach(string color in colors)
+					string color = GetColor(fixedArray)[0];
+					if (GetColor(fixedArray).Length == 1)
 					{
-						if(fixedArray.Contains(color))
-						{
-							string[] codeToReturn = { "<style>body{color:"+color+";}</style>}", "changed font color to "+color};
-						}
-						else
-						{
-							string[] codeToReturn = { "", "Incapable of returning this color yet!  ..Oh yeah beep and boop.. still a abot" };
-						}
+						string[] returnArray = { "<style>body{font:" + color + "!important;}</style>", "Font color changed to "+color };
+						return returnArray;
 					}
-					string[] toReturn = { "", "Failure in font color" };
-					return toReturn;
+					else
+					{
+						string[] returnArray = { "", GetColor(fixedArray)[1] };
+						return returnArray;
+					}
 				}
 				else
 				{
@@ -740,5 +144,621 @@ namespace Disarmingly_Simple.Models
 				return words;
 			}
         }
+
+		public string[] GetColor(string[] chosenArray)
+		{
+			if (chosenArray.Contains("dark"))
+			{
+				if (chosenArray.Contains("cyan"))
+				{
+					string[] codeToReturn = { "darkcyan" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("blue"))
+				{
+					string[] codeToReturn = { "darkblue" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("goldenrod"))
+				{
+					string[] codeToReturn = { "darkgoldenrod" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("grey") || chosenArray.Contains("gray"))
+				{
+					string[] codeToReturn = { "darkgrey" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("green"))
+				{
+					string[] codeToReturn = { "darkgreen" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("khaki"))
+				{
+					string[] codeToReturn = { "darkkhaki" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("magenta"))
+				{
+					string[] codeToReturn = { "darkmagenta" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("olive") && chosenArray.Contains("green"))
+				{
+					string[] codeToReturn = { "darkolivegreen" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("orange"))
+				{
+					string[] codeToReturn = { "darkorange" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("orchid") || (chosenArray.Contains("ore") && chosenArray.Contains("kid")) || (chosenArray.Contains("or") && (chosenArray.Contains("kid") || chosenArray.Contains("could") || chosenArray.Contains("did"))) || (chosenArray.Contains("her") && chosenArray.Contains("or") && chosenArray.Contains("get")) || chosenArray.Contains("work"))
+				{
+					string[] codeToReturn = { "darkorchid" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("red"))
+				{
+					string[] codeToReturn = { "darkred" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("salmon"))
+				{
+					string[] codeToReturn = { "darksalmon" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("seagreen") || ((chosenArray.Contains("sea") || chosenArray.Contains("see")) && chosenArray.Contains("green")))
+				{
+					string[] codeToReturn = { "darkseagreen" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("slate"))
+				{
+					if (chosenArray.Contains("blue"))
+					{
+						string[] codeToReturn = { "darkslateblue" };
+						return codeToReturn.ToArray();
+					}
+					else if (chosenArray.Contains("grey") || chosenArray.Contains("gray"))
+					{
+						string[] codeToReturn = { "darkslategrey" };
+						return codeToReturn.ToArray();
+					}
+					else
+					{
+						string[] codeToReturn = { "error" };
+						return codeToReturn.ToArray();
+					}
+				}
+				else if (chosenArray.Contains("turquoise"))
+				{
+					string[] codeToReturn = { "darkturquoise" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("violet"))
+				{
+					string[] codeToReturn = { "darkviolet" };
+					return codeToReturn.ToArray();
+				}
+				else
+				{
+					string[] codeToReturn = { "", "Please see the documentation for visual studio's native colors." };
+					return codeToReturn.ToArray();
+				}
+			}
+			else if (chosenArray.Contains("deep"))
+			{
+				if (chosenArray.Contains("pink"))
+				{
+					string[] codeToReturn = { "darkpink" };
+					return codeToReturn.ToArray();
+				}
+				else if (chosenArray.Contains("skyblue") || (chosenArray.Contains("sky") && chosenArray.Contains("blue")))
+				{
+					string[] codeToReturn = { "darkskyblue" };
+					return codeToReturn.ToArray();
+				}
+				else
+				{
+					string[] codeToReturn = { "", "Needs pink or skyblue" };
+					return codeToReturn.ToArray();
+				}
+			}
+			else if (chosenArray.Contains("alice") && chosenArray.Contains("blue"))
+			{
+				string[] codeToReturn = { "alice Blue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("antique") && chosenArray.Contains("white"))
+			{
+				string[] codeToReturn = { "antiqueWhite" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("aquamarine") || (chosenArray.Contains("aqua") && chosenArray.Contains("marine")))
+			{
+				string[] codeToReturn = { "aquamarine" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("aqua"))
+			{
+				string[] codeToReturn = { "aqua" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("azure"))
+			{
+				string[] codeToReturn = { "azure" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("beige"))
+			{
+				string[] codeToReturn = { "beige" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("bisque"))
+			{
+				string[] codeToReturn = { "bisque" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("black"))
+			{
+				string[] codeToReturn = { "black" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("blanched") && chosenArray.Contains("almond"))
+			{
+				string[] codeToReturn = { "Blanched Almond" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("blue") && chosenArray.Contains("violet"))
+			{
+				string[] codeToReturn = { "Blue Violet" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("cadetblue") || (chosenArray.Contains("cadet") && chosenArray.Contains("blue")))
+			{
+				string[] codeToReturn = { "cadetblue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("cornflower") || (chosenArray.Contains("cornflower") && chosenArray.Contains("blue")) || (chosenArray.Contains("corn") && chosenArray.Contains("flower") && chosenArray.Contains("blue")))
+			{
+				string[] codeToReturn = { "cornflowerblue" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("midnightblue") || (chosenArray.Contains("midnight") && chosenArray.Contains("blue")))
+			{
+				string[] codeToReturn = { "midnightblue" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("royal") && chosenArray.Contains("blue"))
+			{
+				string[] codeToReturn = { "royalblue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("blue"))
+			{
+				string[] codeToReturn = { "blue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("burlywood") || (chosenArray.Contains("burly") && chosenArray.Contains("wood")))
+			{
+				string[] codeToReturn = { "BurlyWood" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("chartreuse") || (chosenArray.Contains("chart") && chosenArray.Contains("ruse")))
+			{
+				string[] codeToReturn = { "chartreuse" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("chocolate"))
+			{
+				string[] codeToReturn = { "chocolate" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("coral"))
+			{
+				string[] codeToReturn = { "coral" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("cornsilk") || (chosenArray.Contains("corn") && chosenArray.Contains("silk")))
+			{
+				string[] codeToReturn = { "cornsilk" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("crimson"))
+			{
+				string[] codeToReturn = {"crimson" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("cyan"))
+			{
+				string[] codeToReturn = { "cyan" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("dim") && (chosenArray.Contains("grey") || chosenArray.Contains("gray")))
+			{
+				string[] codeToReturn = { "dimgrey" };
+				return codeToReturn.ToArray();
+			}
+			else if ((chosenArray.Contains("dodger") || (chosenArray.Contains("dodge") && (chosenArray.Contains("er") || chosenArray.Contains("her")))) && chosenArray.Contains("blue"))
+			{
+				string[] codeToReturn = { "dodgerblue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("firebrick") || (chosenArray.Contains("fire") && chosenArray.Contains("brick")))
+			{
+				string[] codeToReturn = { "firebrick" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("floral") && chosenArray.Contains("white"))
+			{
+				string[] codeToReturn = { "floralwhite" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("forest") && chosenArray.Contains("green"))
+			{
+				string[] codeToReturn = { "forestgreen" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("fuchsia"))
+			{
+				string[] codeToReturn = { "fuchsia" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("gainsboro") || (chosenArray.Contains("gains") && (chosenArray.Contains("boro") || chosenArray.Contains("borough") || chosenArray.Contains("borrow"))))
+			{
+				string[] codeToReturn = { "gainsboro" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("ghost") && chosenArray.Contains("white"))
+			{
+				string[] codeToReturn = { "ghostwhite" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("gold"))
+			{
+				string[] codeToReturn = { "gold" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("goldenrod") || (chosenArray.Contains("golden") && chosenArray.Contains("rod")))
+			{
+				string[] codeToReturn = { "goldenrod" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("grey") || chosenArray.Contains("gray"))
+			{
+				string[] codeToReturn = { "grey" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("green") && chosenArray.Contains("yellow"))
+			{
+				string[] codeToReturn = { "greenyellow" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("lawn") && chosenArray.Contains("green"))
+			{
+				string[] codeToReturn = { "lawngreen" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("lime") && chosenArray.Contains("green"))
+			{
+				string[] codeToReturn = { "limegreen" };
+				return codeToReturn.ToArray();
+			}
+			else if ((chosenArray.Contains("sea") || chosenArray.Contains("see")) && chosenArray.Contains("green"))
+			{
+				string[] codeToReturn = { "seagreen" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("green"))
+			{
+				string[] codeToReturn = { "green" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("honeydew") || (chosenArray.Contains("honey") && (chosenArray.Contains("dew") || chosenArray.Contains("do"))))
+			{
+				string[] codeToReturn = { "honeydew" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("hotpink") || (chosenArray.Contains("hot") && chosenArray.Contains("pink")))
+			{
+				string[] codeToReturn = { "hotpink" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("indianred") || (chosenArray.Contains("indian") && (chosenArray.Contains("read") || chosenArray.Contains("red"))))
+			{
+				string[] codeToReturn = { "indianred" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("indigo"))
+			{
+				string[] codeToReturn = { "indigo" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("ivory"))
+			{
+				string[] codeToReturn = { "ivory" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("khaki"))
+			{
+				string[] codeToReturn = { "khaki" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("lavenderblush") || (chosenArray.Contains("lavender") && chosenArray.Contains("blush")))
+			{
+				string[] codeToReturn = { "lavenderblush" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("lavender"))
+			{
+				string[] codeToReturn = { "lavender" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("lemon") && chosenArray.Contains("chiffon"))
+			{
+				string[] codeToReturn = { "lemonchiffon" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("light"))
+			{
+				if (chosenArray.Contains("blue"))
+				{
+					string[] codeToReturn = { "lightblue" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("coral"))
+				{
+					string[] codeToReturn = { "lightcoral" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("cyan"))
+				{
+					string[] codeToReturn = { "lightcyan" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("golden") && chosenArray.Contains("rod"))
+				{
+					string[] codeToReturn = { "lightgoldenrodyellow" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("green"))
+				{
+					string[] codeToReturn = { "lightgreen" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("grey") || chosenArray.Contains("gray"))
+				{
+					string[] codeToReturn = { "lightgrey" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("pink"))
+				{
+					string[] codeToReturn = { "lightpink" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("salmon"))
+				{
+					string[] codeToReturn = { "lighsalmon" };
+					return codeToReturn.ToArray();
+				}
+
+				else if (chosenArray.Contains("yellow"))
+				{
+					string[] codeToReturn = { "lightyellow" };
+					return codeToReturn.ToArray();
+				}
+			}
+			else if (chosenArray.Contains("lime"))
+			{
+				string[] codeToReturn = { "lime" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("linen"))
+			{
+				string[] codeToReturn = { "linen" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("magenta"))
+			{
+				string[] codeToReturn = { "magenta" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("maroon"))
+			{
+				string[] codeToReturn = { "maroon" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("mint") && chosenArray.Contains("cream"))
+			{
+				string[] codeToReturn = { "mintcream" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("misty") && chosenArray.Contains("rose"))
+			{
+				string[] codeToReturn = { "mistyrose" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("moccasin"))
+			{
+				string[] codeToReturn = { "moccasin" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("navajo"))
+			{
+				string[] codeToReturn = { "navajowhite" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("navy"))
+			{
+				string[] codeToReturn = { "navy" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("old") && chosenArray.Contains("lace"))
+			{
+				string[] codeToReturn = { "oldlace" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("olive"))
+			{
+				string[] codeToReturn = { "olive" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("red") && chosenArray.Contains("orange"))
+			{
+				string[] codeToReturn = { "orangered" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("orange"))
+			{
+				string[] codeToReturn = { "orange" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("orchid"))
+			{
+				string[] codeToReturn = { "orchid" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("peach") && chosenArray.Contains("puff"))
+			{
+				string[] codeToReturn = { "peachpuff" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("peru"))
+			{
+				string[] codeToReturn = { "peru" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("plum"))
+			{
+				string[] codeToReturn = { "plum" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("powderblue") || (chosenArray.Contains("powder") && chosenArray.Contains("blue")))
+			{
+				string[] codeToReturn = { "powderblue" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("purple"))
+			{
+				string[] codeToReturn = { "purple" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("red"))
+			{
+				string[] codeToReturn = { "red" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("rosy") && chosenArray.Contains("brown"))
+			{
+				string[] codeToReturn = { "rosybrown" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("saddle") && chosenArray.Contains("brown"))
+			{
+				string[] codeToReturn = { "saddlebrown" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("salmon"))
+			{
+				string[] codeToReturn = { "salmon" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("sandy") && chosenArray.Contains("brown"))
+			{
+				string[] codeToReturn = { "yellow" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("sienna"))
+			{
+				string[] codeToReturn = { "sienna" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("silver"))
+			{
+				string[] codeToReturn = { "silver" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("snow"))
+			{
+				string[] codeToReturn = { "snow" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("tan"))
+			{
+				string[] codeToReturn = { "tan" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("teal"))
+			{
+				string[] codeToReturn = { "teal" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("thistle"))
+			{
+				string[] codeToReturn = { "thistle" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("tomato"))
+			{
+				string[] codeToReturn = { "tomato" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("turquiose"))
+			{
+				string[] codeToReturn = { "turquiose" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("violet"))
+			{
+				string[] codeToReturn = { "violet" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("wheat"))
+			{
+				string[] codeToReturn = { "wheat" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("white"))
+			{
+				string[] codeToReturn = { "white" };
+				return codeToReturn.ToArray();
+			}
+
+			else if (chosenArray.Contains("yellow"))
+			{
+				string[] codeToReturn = { "yellow" };
+				return codeToReturn.ToArray();
+			}
+			else if (chosenArray.Contains("pink"))
+			{
+				string[] codeToReturn = { "pink" };
+				return codeToReturn.ToArray();
+			}
+			else
+			{
+				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "See Visual Studio's Documentation on color names, or try again if the " };
+				return codeToReturn.ToArray();
+			}
+			return chosenArray;
+		}
     }
 }

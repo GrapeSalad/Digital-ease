@@ -1,5 +1,23 @@
 ﻿<div class="toBeShown">
-@Html.Raw(Model[0])
+    @if (Model.Length > 2)
+    {
+        @foreach(var word in Model)
+        {
+            <p>@word</p>
+        }
+    }
+    else
+    { 
+        @Html.Raw(Model[0])
+        <p>@Model[1]</p>
+    }
+</div>
+
+
+
+
+
+
 @*@Html.Encode(Model)*@
     @*<div id="interactable" class=@Model[Model.Length-1]>*@
          @*@if (Model.Results.Count != 0)
@@ -11,6 +29,4 @@
             <p>@word</p>
 
         }*@
-        <p>@Model[1]</p>
     @*</div>*@
-</div>
