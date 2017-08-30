@@ -5,7 +5,7 @@ function incrementFileNames() {//increments the file names
         arrayOfFileNames.push("speech0");
     }
     else {
-        arrayOfFileNames.push("speech0 " + "(" + num.toString() + ")");
+        arrayOfFileNames.push("speech" + num.toString());
         num += 1;
     }
 }
