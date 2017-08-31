@@ -40,22 +40,14 @@ Nuget Packages to ensure are installed:
 
 Watch for Reference Restoration errors, you may need to add `System.Runtime.4.1.0` to the project.
 
-### Migration
-
-Navigate to `....\project-name\src\projectname`.
-Run this command in your terminal: `dotnet ef database update`.
-
-### Data Entry
-
-Open [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms), Log in to the default database, Find the open file button in the tool ribbon, navigate to and double click on the file named Data_For_Migration in the SQL_Queries folder.
-
 ### Running the Server
 
-After installation and Migration, press f5 or the play button in the toolbar to run the server and have the site appear in your default browser.
+After installation , press f5 or the play button in the toolbar to run the server and have the site appear in your default browser.
 
 ## Known Bugs
 
-This don't even work yet broh. Barely even started, broh.
+Speech to text is buggy. Its almost impossible for a human to fully understand what another human says every time, so lets not assume the computer knows either.
+Need to account for much more variation, which will help.
 
 ## Technologies Utilized
 
