@@ -89,7 +89,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24545', end
         clear: both;
         position: absolute;
         top: 40%;
-        left: 40%;
+        left: 45%;
     }
     #showRecording{
         display: none;
@@ -140,11 +140,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24545', end
     #appContent{
         min-height: 600px;
     }
+    #recordedAudio{
+        margin-top: 10px;
+    }
 </style>
 <div id="appContent">
     <div><button id="showRecording">Record</button></div>
     <div id="viz">
+        <p id="currentInput">Current Input</p>
         <canvas id="analyser" width="1024" height="500"></canvas>
+        <p id="recordedAudio">Recorded Audio</p>
         <canvas id="wavedisplay" width="1024" height="500"></canvas>
     </div>
     <div id="controls">

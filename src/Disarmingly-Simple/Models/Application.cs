@@ -65,7 +65,7 @@ namespace Disarmingly_Simple.Models
             }
             else
             {
-                string[] testArray = { "}</style>", "aint", "nothing", "here"};
+                string[] testArray = { "Nothing to record", "Please, re-record your statement", "and stand close to mic"};
                 words = testArray;
             }
             return splitArrayTesting(words);
@@ -306,7 +306,7 @@ namespace Disarmingly_Simple.Models
 					return codeToReturn.ToArray();
 				}
 			}
-			else if ((chosenArray.Contains("alice") || (chosenArray.Contains("how") && chosenArray.Contains("lists"))) && chosenArray.Contains("blue"))
+			else if ((chosenArray.Contains("alice") || chosenArray.Contains("Dallas") || (chosenArray.Contains("how") && chosenArray.Contains("lists"))) && chosenArray.Contains("blue"))
 			{
 				string[] codeToReturn = { "aliceblue" };
 				return codeToReturn.ToArray();
@@ -795,7 +795,7 @@ namespace Disarmingly_Simple.Models
 			}
 			else
 			{
-				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "Error finding the name, potential fix: re-record" };
+				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "Error finding the name, potential fix: re-record | " + String.Join(" ", chosenArray)};
 				return codeToReturn.ToArray();
 			}
 			return chosenArray;
