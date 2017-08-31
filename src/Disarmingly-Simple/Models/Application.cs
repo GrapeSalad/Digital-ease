@@ -73,7 +73,7 @@ namespace Disarmingly_Simple.Models
 
 		public string[] fixArray(string[] array)
 		{
-			string[] wordToRemove = { "the", "of", "it", "to", "two", "too" };
+			string[] wordToRemove = { "the", "of", "it", "to", "two", "too", "", "that" };
 			string[] fixedArray = { };
 			//string[] codeToReturn = { };
 			for (var i = 0; i < wordToRemove.Count(); i++)
@@ -85,58 +85,99 @@ namespace Disarmingly_Simple.Models
         public Array splitArrayTesting(string[] chosenArray)
         {
 			string[] fixedArray = fixArray(chosenArray);
-            if(fixedArray.Contains("background"))
-            {
-                if(fixedArray.Contains("color"))
-                {
-					string color = GetColor(fixedArray)[0];
-					if (GetColor(fixedArray).Length == 1)
-					{
-						string[] returnArray = { "<style>body{background-color:" + color + ";}</style>", "Background color changed to " + color };
-						return returnArray;
-					}
-					else
-					{
-						string[] returnArray = { "", GetColor(fixedArray)[1] };
-						return returnArray;
-					}
-				}
-                return fixedArray;
-            }
-			else if( fixedArray.Contains("font"))
+			if(fixedArray.Contains("change"))
 			{
-				if(fixedArray.Contains("size"))
+				if (fixedArray.Contains("background"))
 				{
-					foreach(var number in numbers)
+					if(fixedArray.Contains("color"))
 					{
-						if(fixedArray.Contains(number))
+						string color = GetColor(fixedArray)[0];
+						if (GetColor(fixedArray).Length == 1)
 						{
-							
-							string[] codeToReturn = { "<style>body{font-size:"+(Array.IndexOf(numbers, number)+1)+"px;}</style>", number };
-							return codeToReturn;
+							string[] returnArray = { "<style>body{background-color:" + color + ";}</style>", "Background color changed to " + color };
+							return returnArray;
+						}
+						else
+						{
+							string[] returnArray = { "", GetColor(fixedArray)[1] };
+							return returnArray;
 						}
 					}
-					string[] toReturn = { "", "Failure in font size"};
-					return toReturn;
+					return fixedArray;
 				}
-				else if(fixedArray.Contains("color"))
+				else if( fixedArray.Contains("font"))
 				{
-					string color = GetColor(fixedArray)[0];
-					if (GetColor(fixedArray).Length == 1)
+					if(fixedArray.Contains("size"))
 					{
-						string[] returnArray = { "<style>body{color:" + color + "!important;}</style>", "Font color changed to "+color };
-						return returnArray;
+						foreach(var number in numbers)
+						{
+							if(fixedArray.Contains(number))
+							{
+							
+								string[] codeToReturn = { "<style>body{font-size:"+(Array.IndexOf(numbers, number)+1)+"px;}</style>", number };
+								return codeToReturn;
+							}
+						}
+						string[] toReturn = { "", "Failure in font size"};
+						return toReturn;
+					}
+					else if(fixedArray.Contains("color"))
+					{
+						string color = GetColor(fixedArray)[0];
+						if (GetColor(fixedArray).Length == 1)
+						{
+							string[] returnArray = { "<style>body{color:" + color + "!important;}</style>", "Font color changed to "+color };
+							return returnArray;
+						}
+						else
+						{
+							string[] returnArray = { "", GetColor(fixedArray)[1] };
+							return returnArray;
+						}
 					}
 					else
 					{
-						string[] returnArray = { "", GetColor(fixedArray)[1] };
-						return returnArray;
+						string[] toReturn = { "", "Failure in font" };
+						return toReturn;
 					}
 				}
 				else
 				{
-					string[] toReturn = { "", "Failure in font" };
-					return toReturn;
+					return words;
+				}
+			}
+			else if(fixedArray.Contains("create"))
+			{
+				if(fixedArray.Contains("paragraph"))
+				{
+					if(fixedArray.Contains("says"))
+					{
+						//List<string> returnArray = new List<string>(){ };
+						List<string> testArray = new List<string>() { "<p>" };
+						for(var i = (Array.IndexOf(fixedArray, "says")+1); i<=fixedArray.Length;i++)
+						{
+							if(i < fixedArray.Length)
+							{
+								testArray.Add(fixedArray[i].ToString());
+							}
+							else
+							{
+								testArray.Add("</p>");
+							}
+						}
+
+						string[] returnArray = { String.Join(" ", testArray), String.Join(" ", fixedArray)};
+						//returnArray.Add(fixedArray.ToString());
+						return returnArray;
+					}
+					else
+					{
+						return words;
+					}
+				}
+				else
+				{
+					return words;
 				}
 			}
 			else
@@ -755,7 +796,7 @@ namespace Disarmingly_Simple.Models
 			}
 			else
 			{
-				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "See Visual Studio's Documentation on color names, or try again if the " };
+				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "See Visual Studio's Documentation on color names, or try to record again" };
 				return codeToReturn.ToArray();
 			}
 			return chosenArray;

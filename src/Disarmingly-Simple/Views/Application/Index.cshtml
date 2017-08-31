@@ -1,13 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "SPEEEEEEEEECH - ZOMG";
-    ViewData["SpeechToTextHelp"] = "Well its time to do some stuff.";
-    ViewData["RecordingHelp"] = "To begin recording click on the microphone image, speak into your computers microphone, and then click again on the image to stop recording. Once you are finished, click on the save file button to download the file.";
+    ViewData["Title"] = "Spoken Interaction";
+    ViewData["RecordingHelp"] = "DIRECTIONS: To begin recording click on the microphone image, speak into your computers microphone, and then click again on the image to stop recording. Once you are finished, click on the download button to download the file.";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewData["Title"]</h2>
 <h3 id="getAudioHelp">@ViewData["RecordingHelp"]</h3>
-<h3 id="getTextHelp">@ViewData["SpeechToTextHelp"]</h3>
-
+<h3 id="getTextHelp">"Click on the parse button to see what IBM's Watson&trade; thinks you said, and if it will change something about the website. Click the record button to go back and record another audio track."</h3>
 <script src="~/js/audioDisplay.js"></script>
 <script src="~/js/recorderjs/recorder.js"></script>
 <script src="~/js/receiveAudio.js"></script>
@@ -27,6 +25,9 @@
         z-index: 1;
     }
 
+    h2{
+        text-align: center;
+    }
     canvas {
         display: inline-block;
         background: #202020;
@@ -90,26 +91,65 @@
     #showRecording{
         display: none;
     }
-    .green {
-        background-color: green;
-    }
     #getTextTime{
         display: none;
+        /*float: right;*/
+        /*clear: left;*/
+        position: absolute;
+        top: 250px;
+        right: 15%;
+    }
+    #showRecording{
+        /*float:left;*/
+        /*clear:right;*/
+        position: absolute;
+        top: 250px;
+        left: 15%;
+    }
+    #showRecording, #getTextTime {
+        height: 175px;
+        width: 175px;
+    }
+    #textOutputResult{
+        width: inherit;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 450px;
+        left: 30%;
+        text-align:center;
+    }
+    button{
+        border: 1px solid #202020;
+        border-radius: 10px;
+    }
+    button:hover{
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
+    button:active{
+        -webkit-box-shadow: inset 0px 0px 28px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 28px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 28px 0px rgba(0,0,0,0.75);
+    }
+    #appContent{
+        min-height: 600px;
     }
 </style>
+<div id="appContent">
+    <div><button id="showRecording">Record</button></div>
+    <div id="viz">
+        <canvas id="analyser" width="1024" height="500"></canvas>
+        <canvas id="wavedisplay" width="1024" height="500"></canvas>
+    </div>
+    <div id="controls">
+        <img id="record" src="~/images/mic128.png" onclick="toggleRecording(this);">
+        <a id="save" href="#"><img src="~/images/save.svg"></a>
+    </div>
 
-<div id="showRecording"><button>Show Recording Section</button></div>
-<div id="viz">
-    <canvas id="analyser" width="1024" height="500"></canvas>
-    <canvas id="wavedisplay" width="1024" height="500"></canvas>
+    <div><button id="getTextTime">Parse</button></div>
+    <img id="loadingGif" src="~/images/loadingGif.gif" />
+    <div id="textOutputResult"></div>
 </div>
-<div id="controls">
-    <img id="record" src="~/images/mic128.png" onclick="toggleRecording(this);">
-    <a id="save" href="#"><img src="~/images/save.svg"></a>
-</div>
-
-<div id="getTextTime"><button>CLICK THIS BROH, <br />ITS TIME FOR SOME TEXT</button></div>
-<img id="loadingGif" src="~/images/loadingGif.gif" />
-<div id="textOutputResult"></div>
-
 
