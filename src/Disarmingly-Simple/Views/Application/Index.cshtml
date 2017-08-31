@@ -6,6 +6,8 @@
 <h2>@ViewData["Title"]</h2>
 <h3 id="getAudioHelp">@ViewData["RecordingHelp"]</h3>
 <h3 id="getTextHelp">Click on the parse button to see what IBM's Watson&trade; thinks you said, and if it will change something about the website. Click the record button to go back and record another audio track.</h3>
+<p>Keywords: Change, create, background, font, color, size, (and most of <a href="https://msdn.microsoft.com/en-us/library/aa358802(v=vs.85).aspx" target="_blank">THESE</a> colors)</p>
+<p>Example statement: Change the background color to magenta</p>
 <script src="~/js/audioDisplay.js"></script>
 <script src="~/js/recorderjs/recorder.js"></script>
 <script src="~/js/receiveAudio.js"></script>
@@ -97,17 +99,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24545', end
         /*float: right;*/
         /*clear: left;*/
         position: absolute;
-        top: 250px;
         right: 15%;
     }
     #showRecording{
         /*float:left;*/
         /*clear:right;*/
         position: absolute;
-        top: 250px;
         left: 15%;
     }
     #showRecording, #getTextTime {
+        top: 300px;
         height: 175px;
         width: 175px;
     }
@@ -118,7 +119,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24545', end
         margin: 0;
         clear: both;
         position: absolute;
-        top: 450px;
+        top: 500px;
         left: 20%;
         text-align:center;
     }
@@ -150,7 +151,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24545', end
         <img id="record" src="~/images/mic128.png" onclick="toggleRecording(this);">
         <a id="save" href="#"><img src="~/images/save.svg"></a>
     </div>
-
     <div><button id="getTextTime">Parse</button></div>
     <img id="loadingGif" src="~/images/loadingGif.gif" />
     <div id="textOutputResult"></div>

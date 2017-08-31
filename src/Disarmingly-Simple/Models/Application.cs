@@ -306,9 +306,9 @@ namespace Disarmingly_Simple.Models
 					return codeToReturn.ToArray();
 				}
 			}
-			else if (chosenArray.Contains("alice") && chosenArray.Contains("blue"))
+			else if ((chosenArray.Contains("alice") || (chosenArray.Contains("how") && chosenArray.Contains("lists"))) && chosenArray.Contains("blue"))
 			{
-				string[] codeToReturn = { "alice Blue" };
+				string[] codeToReturn = { "aliceblue" };
 				return codeToReturn.ToArray();
 			}
 			else if (chosenArray.Contains("antique") && chosenArray.Contains("white"))
@@ -795,7 +795,7 @@ namespace Disarmingly_Simple.Models
 			}
 			else
 			{
-				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "See Visual Studio's Documentation on color names, or try to record again" };
+				string[] codeToReturn = { "BEEP BOOP DOES NOT COMPUTE", "Error finding the name, potential fix: re-record" };
 				return codeToReturn.ToArray();
 			}
 			return chosenArray;
