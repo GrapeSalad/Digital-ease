@@ -27,6 +27,7 @@ $().ready(function () {
         $("#getTextTime").hide();
         $("#getTextHelp").hide();
         $("#showRecording").hide();
+        $("#textOutputResult").hide();
     })
     $("#getTextTime").click(function () {
         $("#loadingGif").show();
@@ -37,6 +38,7 @@ $().ready(function () {
             data: { fileName: arrayOfFileNames[arrayOfFileNames.length - 1].toString() },//pulls most recent audio file
             url: '/TextOutput',
             success: function (result) {
+                $("#textOutputResult").show();
                 $("#loadingGif").hide();
                 var shown = $(result).find(".toBeShown").html();
                 $("#textOutputResult").html(shown);

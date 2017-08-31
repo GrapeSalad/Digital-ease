@@ -113,7 +113,6 @@ namespace Disarmingly_Simple.Models
 						{
 							if(fixedArray.Contains(number))
 							{
-							
 								string[] codeToReturn = { "<style>body{font-size:"+(Array.IndexOf(numbers, number)+1)+"px;}</style>", number };
 								return codeToReturn;
 							}
