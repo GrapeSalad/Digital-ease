@@ -10,14 +10,14 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Disarmingly_Simple.Models
 {
-    public class Application
+    public class Application//most returns are structured as string arrays, keep this in mind when creating methods to crunch and return values.
     {
         public string[] words;
         public SpeechRecognitionEvent result;
         public string[] bgToGreen = { "change", "the", "background", "color", "to", "green" };
         public string[] bgToRed = { "change", "the", "background", "color", "to", "red" };
 		public string[] colors = { "red", "green", "blue", "yellow" };
-		public string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty" };
+		public string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty" };//can refactor this in order to reduce code. need to account for 22 == twenty-two.
 
         private SpeechToTextService _speechToText = new SpeechToTextService();
 
@@ -71,7 +71,7 @@ namespace Disarmingly_Simple.Models
             return splitArrayTesting(words);
         }
 
-		public string[] fixArray(string[] array)
+		public string[] fixArray(string[] array)//is this necessary?
 		{
 			string[] wordToRemove = { "the", "of", "it", "to", "two", "too", "", "that" };
 			string[] fixedArray = { };
@@ -82,7 +82,7 @@ namespace Disarmingly_Simple.Models
 			}
 			return fixedArray;
 		}
-        public Array splitArrayTesting(string[] chosenArray)
+        public Array splitArrayTesting(string[] chosenArray)//Simple changes to bg/font color, font size
         {
 			string[] fixedArray = fixArray(chosenArray);
 			if(fixedArray.Contains("change"))
@@ -113,7 +113,7 @@ namespace Disarmingly_Simple.Models
 						{
 							if(fixedArray.Contains(number))
 							{
-								string[] codeToReturn = { "<style>body{font-size:"+(Array.IndexOf(numbers, number)+1)+"px;}</style>", number };
+								string[] codeToReturn = { "<style>body{font-size:"+(Array.IndexOf(numbers, number)+1)+"px;}</style>", number };//Gets index of the number in the numbers array
 								return codeToReturn;
 							}
 						}
@@ -145,7 +145,7 @@ namespace Disarmingly_Simple.Models
 					return words;
 				}
 			}
-			else if(fixedArray.Contains("create"))
+			else if(fixedArray.Contains("create"))//CREATE PARAGRAPH
 			{
 				if(fixedArray.Contains("paragraph"))
 				{
@@ -185,7 +185,7 @@ namespace Disarmingly_Simple.Models
 			}
         }
 
-		public string[] GetColor(string[] chosenArray)
+		public string[] GetColor(string[] chosenArray)//Well, this one gets the color
 		{
 			if (chosenArray.Contains("dark"))
 			{
@@ -799,6 +799,35 @@ namespace Disarmingly_Simple.Models
 				return codeToReturn.ToArray();
 			}
 			return chosenArray;
+		}
+
+		public string[] CreateForm(string[] chosenArray)
+		{
+			string[] formCreation = {"<form>" };
+			if(chosenArray.Contains("input") && (chosenArray.Contains("field") || chosenArray.Contains("fields")))
+			{
+				if(chosenArray.Contains("number") || chosenArray.Contains("numbers"))
+				{
+					int num = Array.IndexOf(chosenArray, "number");//gets the index of the word number in the chosenArray
+					foreach (var number in numbers)
+					{
+						if (Array.IndexOf(chosenArray, number) == (num + 1))//testing to see if chosenArray returns a number before the word number, to see how many number fields the user wants
+						{
+							for(int i = 0; i<=)//need to get index of number array to get number of number input fields to display
+							formCreation.Append();
+						}
+					}
+				}
+				else if()//contains text
+				{
+
+				}
+			}
+			else
+			{
+				string[] fail = {"you done failed this one", "broh" };
+				return fail;
+			}
 		}
     }
 }
