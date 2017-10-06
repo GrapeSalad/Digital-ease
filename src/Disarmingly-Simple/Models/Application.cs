@@ -801,33 +801,33 @@ namespace Disarmingly_Simple.Models
 			return chosenArray;
 		}
 
-		public string[] CreateForm(string[] chosenArray)
+		/*public string[] CreateForm(string[] chosenArray)
 		{
-			string[] formCreation = {"<form>" };
-			if(chosenArray.Contains("input") && (chosenArray.Contains("field") || chosenArray.Contains("fields")))
+			string[] formCreation = { "<form>" };
+			if (chosenArray.Contains("input") && (chosenArray.Contains("field") || chosenArray.Contains("fields")))
 			{
-				if(chosenArray.Contains("number") || chosenArray.Contains("numbers"))
+				if (chosenArray.Contains("number") || chosenArray.Contains("numbers"))
 				{
 					int num = Array.IndexOf(chosenArray, "number");//gets the index of the word number in the chosenArray
 					foreach (var number in numbers)
 					{
 						if (Array.IndexOf(chosenArray, number) == (num + 1))//testing to see if chosenArray returns a number before the word number, to see how many number fields the user wants
 						{
-							for(int i = 0; i<=)//need to get index of number array to get number of number input fields to display
-							formCreation.Append();
+							for (int i = 0; i <=)//need to get index of number array to get number of number input fields to display
+								formCreation.Append();
 						}
 					}
 				}
-				else if()//contains text
+				else if ()//contains text
 				{
 
 				}
 			}
 			else
 			{
-				string[] fail = {"you done failed this one", "broh" };
+				string[] fail = { "you done failed this one", "broh" };
 				return fail;
 			}
-		}
-    }
+		}*/
+	}
 }

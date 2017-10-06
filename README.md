@@ -26,8 +26,9 @@ This is an idea for a hands free web-developement app. Using speech-to-text tech
 | TO DO | Example (if needed) |
 |---| ---|
 | Account for different ways of structuring sentences | "add color background yellow" vs "add background yellow color" etc |
-| Add ability to create a form | "create form with parameters" |
+| Add ability to create a form | "create form with parameters two text fields, three number fields, one date field" |
 | Restructure method calls to make the data path easier to follow | split into if statements regarding change/add |
+| Add buttons to allow user to revisit a successful change | Change background color to green (as a button) |
 | Persist correct statements for the user to retrieve and be able to change multiple aspects of the site at a time | change bg color AND font color |
 
 <hr>
